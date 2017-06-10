@@ -1,5 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
+
 body {
+  background-image: linear-gradient(red, yellow);
+  background-repeat: no;
+  color: black;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  text-align: center;
+  font-family: Roboto;
+  overflow-y: hidden;
+}
+
+h1 {
+  font-size: 5vw;
+  letter-spacing: 2vw;
+  margin: 5px;
+}
+
+h6 {
+  font-size: 1vw;
+}
+
+.board-container {
+  border-radius: 10px;
+  border: black solid 1px;
+  box-shadow: 0px 0px 5px gray;
+  display: flex;
+  margin: 1% auto;
+  overflow-y: hidden;
+  width: 52vw;
+}
+
+.column {
+  background-color: black;
+  flex: 1;
+  padding: 1%;
+}
+
+.circles {
+  background-color: white;
+  border-radius: 3vw;
+  border: 1px solid black;
+  height: 6vw;
+  margin: 0.3vw auto;
+  width: 6vw;
+
 }

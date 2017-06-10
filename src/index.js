@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Board from './Board'
+import Column from './Column'
 import './index.css'
 
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
@@ -31,14 +31,6 @@ function StateExplorer (state) {
   )
 }
 
-function ConnectFour (state) {
-  return (
-    <section id='gameContainer'>
-      {Board(state.board)}
-    </section>
-  )
-}
-
 window.appState = initialState
 
 function App (state) {
@@ -47,8 +39,26 @@ function App (state) {
 
   return (
     <div id='appContainer'>
+      <h1>CONNECT FOUR</h1>
       {ConnectFour(state)}
       {stateExplorerComponent}
+      <h6>designed by jenny penfield</h6>
+    </div>
+  )
+}
+
+function ConnectFour (state) {
+  return (
+    <section id='gameContainer'>
+      {Board(state.board)}
+    </section>
+  )
+}
+
+function Board (state) {
+  return (
+    <div className='board-container'>
+      {Column(state)}
     </div>
   )
 }
