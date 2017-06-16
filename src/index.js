@@ -1,23 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Column from './Column'
+import connect4Lib from 'connect4-lib'
 import './index.css'
 
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
-const emptyBoard = [
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null]
-]
-
 const initialState = {
   turn: true,
-  board: emptyBoard
+  board: connect4Lib.EMPTY_BOARD
 }
 
 function StateExplorer (state) {
@@ -42,7 +33,7 @@ function App (state) {
       <h1>CONNECT FOUR</h1>
       {ConnectFour(state)}
       {stateExplorerComponent}
-      <h6>designed by jenny penfield</h6>
+      <h6>designed by jennifer penfield</h6>
     </div>
   )
 }
