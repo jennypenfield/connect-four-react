@@ -38,12 +38,33 @@ h6 {
   padding: 1%;
 }
 
-.circles {
+.white-circle {
   background-color: white;
   border-radius: 3vw;
   border: 1px solid black;
   height: 6vw;
   margin: 0.3vw auto;
   width: 6vw;
+}
 
+.red-gamepiece {
+  background-color: red;
+  border-radius: 3vw;
+  border: 1px solid black;
+  height: 6vw;
+  margin: 0.3vw auto;
+  width: 6vw;
+}
+
+.yellow-gamepiece {
+  /*background: url(img/angel.png) no-repeat;
+  border-radius: 3vw;
+  height: 6vw;
+  width: 6vw;*/
+  background-color: yellow;
+  border-radius: 3vw;
+  border: 1px solid black;
+  height: 6vw;
+  margin: 0.3vw auto;
+  width: 6vw;
 }

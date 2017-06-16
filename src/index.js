@@ -7,8 +7,12 @@ import './index.css'
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
 const initialState = {
-  turn: true,
-  board: connect4Lib.EMPTY_BOARD
+  board: connect4Lib.EMPTY_BOARD,
+  player1: '',
+  player2: '',
+  currentPlayer: 'yellow',
+  gameOver: false,
+  winnerCoord: null
 }
 
 function StateExplorer (state) {
@@ -31,16 +35,16 @@ function App (state) {
   return (
     <div id='appContainer'>
       <h1>CONNECT FOUR</h1>
-      {ConnectFour(state)}
+      {Screen(state)}
       {stateExplorerComponent}
-      <h6>designed by jennifer penfield</h6>
+      <h6>designed by jenny penfield</h6>
     </div>
   )
 }
 
-function ConnectFour (state) {
+function Screen (state) {
   return (
-    <section id='gameContainer'>
+    <section className='game-container'>
       {Board(state.board)}
     </section>
   )
@@ -54,6 +58,9 @@ function Board (state) {
   )
 }
 
+function highlightWinner (board) {
+  if (connect4Lib.gameStatus(board) === 'tie') {}
+}
 // ---------------------------------------------------------
 // Render Loop
 // ---------------------------------------------------------
