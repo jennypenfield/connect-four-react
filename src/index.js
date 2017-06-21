@@ -1,15 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Column from './Column'
+import Board from './Board.js'
+import Scoreboard from './Scoreboard.js'
 import connect4Lib from 'connect4-lib'
 import './index.css'
 
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
-const initialState = {
+const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
-  player1: '',
-  player2: '',
+  gameStatus: connect4Lib.gameStatus,
+  yellowPlayerName: '',
+  RedPlayerName: '',
+  yellowTotalWins: 0,
+  redTotalWins: 0,
   currentPlayer: 'yellow',
   gameOver: false,
   winnerCoord: null
@@ -26,41 +30,34 @@ function StateExplorer (state) {
   )
 }
 
-window.appState = initialState
+window.appState = INITIAL_STATE
 
 function App (state) {
   let stateExplorerComponent = null
   if (showStateExplorer) stateExplorerComponent = StateExplorer(state)
 
   return (
-    <div id='appContainer'>
+    <div className='app-container'>
       <h1>CONNECT FOUR</h1>
-      {Screen(state)}
+      <div className='buttons-board-scoreboard-container'>
+        <div className='left-container' />
+        {Board(state.board)}
+        {Scoreboard(state.yellowPlayerName, state.redPlayerName, state.yellowTotalWins,
+          state.redTotalWins)}
+      </div>
+      <button className='game-btn' onClick={startOverBtn}>Start Over</button>
       {stateExplorerComponent}
       <h6>designed by jenny penfield</h6>
     </div>
   )
 }
 
-function Screen (state) {
+function startOverBtn () {
   return (
-    <section className='game-container'>
-      {Board(state.board)}
-    </section>
+    window.appState = INITIAL_STATE
   )
 }
 
-function Board (state) {
-  return (
-    <div className='board-container'>
-      {Column(state)}
-    </div>
-  )
-}
-
-function highlightWinner (board) {
-  if (connect4Lib.gameStatus(board) === 'tie') {}
-}
 // ---------------------------------------------------------
 // Render Loop
 // ---------------------------------------------------------
