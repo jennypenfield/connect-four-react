@@ -7,19 +7,24 @@ import './index.css'
 
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
-let yellowPlayer = ''
-let redPlayer = ''
-// window.onload = function () {
-//   window.appState.yellowPlayerName = window.prompt('Enter Player 1 Name')
-//   window.appState.redPlayerName = window.prompt('Enter Player 2 Name')
-//   window.alert('Have Fun!')
-// }
+window.onload = function () {
+  let yellowPlayerInput = window.prompt('Enter Player 1 Name')
+  if (yellowPlayerInput !== '') {
+    window.appState.yellowPlayerName = yellowPlayerInput
+  }
+  let redPlayerInput = window.prompt('Enter Player 2 Name')
+  if (redPlayerInput !== '') {
+    window.appState.redPlayerName = redPlayerInput
+  }
+
+  window.alert('Have Fun!')
+}
 
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
   gameStatus: connect4Lib.gameStatus,
-  yellowPlayerName: yellowPlayer,
-  redPlayerName: redPlayer,
+  yellowPlayerName: 'Player 1',
+  redPlayerName: 'Player 2',
   yellowTotalWins: 0,
   redTotalWins: 0,
   currentPlayer: 'yellow',
