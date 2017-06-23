@@ -7,11 +7,19 @@ import './index.css'
 
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
+let yellowPlayer = ''
+let redPlayer = ''
+// window.onload = function () {
+//   window.appState.yellowPlayerName = window.prompt('Enter Player 1 Name')
+//   window.appState.redPlayerName = window.prompt('Enter Player 2 Name')
+//   window.alert('Have Fun!')
+// }
+
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
   gameStatus: connect4Lib.gameStatus,
-  yellowPlayerName: '',
-  RedPlayerName: '',
+  yellowPlayerName: yellowPlayer,
+  redPlayerName: redPlayer,
   yellowTotalWins: 0,
   redTotalWins: 0,
   currentPlayer: 'yellow',
@@ -47,7 +55,7 @@ function App (state) {
       </div>
       <button className='game-btn' onClick={startOverBtn}>Start Over</button>
       {stateExplorerComponent}
-      <h6>designed by jenny penfield</h6>
+      <h6>designed by <a className='link' href='https://github.com/jennypenfield'>jenny penfield</a></h6>
     </div>
   )
 }

@@ -1,11 +1,10 @@
-/* global appState */
 import React from 'react'
 import Column from './Column.js'
 
-function Board (boardstate) {
+function Board (board) {
   return (
     <div className='board-container'>
-      {Column(boardstate)}
+      {Column(board)}
     </div>
   )
 }

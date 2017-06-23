@@ -1,4 +1,3 @@
-/* global appState */
 import React from 'react'
 
 function Circles (column, indexRow) {

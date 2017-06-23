@@ -6,7 +6,7 @@ import {gameStatus} from 'connect4-lib'
 function Column (board) {
   let arrColumns = board.map(function (column, index) {
     return (
-      <div key={index} className='column' onClick={pushGamepiece()}>
+      <div key={index} className='column' onClick={pushGamepiece.bind(null, index)}>
         {Circles(column)}
       </div>
     )
@@ -14,32 +14,48 @@ function Column (board) {
   return arrColumns
 }
 
-function pushGamepiece () {
-  if (gameStatus(appState.board) !== 'tie' )
-  checkStatus()
-  changeTurns()
-}
-
-function checkStatus () {
-  checkForWinner()
-  checkTie()
-}
-
-function changeTurns () {
-  if (appState.currentPlayer === 'yellow') appState.currentPlayer === 'red'
-  if (appState.currentPlayer === 'yellow') appState.currentPlayer === 'red'
-}
-
-function checkForWinner () {
-  if (gameStatus(appState.board).status === 'winner_yellow' ||
-  gameStatus(appState.board).status === 'winner_red') {
-    // highlightWinner()
+function pushGamepiece (index) {
+  let columnClicked = appState.board[index]
+  for (let i = columnClicked.length - 1; i >= 0; i--) {
+    if (columnClicked[i] === null) {
+      let player = appState.currentPlayer
+      console.log(player)
+      columnClicked[i] = appState.currentPlayer
+      changeTurns()
+      checkStatus()
+      return
+    }
   }
 }
 
-function checkTie () {
-  if (gameStatus(appState.board).status === 'tie') {
+function checkStatus () {
+  // let gameState = gameStatus(appState.board).status
+  // console.log(gameState)
+  // checkForWinner()
+  // checkForTie()
+}
+
+function changeTurns () {
+  if (appState.currentPlayer === 'yellow') {
+    appState.currentPlayer = 'red'
+  } else {
+    appState.currentPlayer = 'yellow'
+  }
+}
+
+function checkForWinner () {
+  let gameState = gameStatus(appState.board).status
+  if (gameState === 'winner_yellow' || gameState === 'winner_red') {
+    // highlightWinner()
+    console.log('checkwinner')
+  }
+}
+
+function checkForTie (board) {
+  let gameState = gameStatus(appState.board).status
+  if (gameState === 'tie') {
     // highlightBoard()
+    console.log('check tie')
   }
 }
 
