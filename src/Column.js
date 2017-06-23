@@ -29,8 +29,8 @@ function pushGamepiece (index) {
 }
 
 function checkStatus () {
-  // let gameState = gameStatus(appState.board).status
-  // console.log(gameState)
+  let gameState = gameStatus(appState.board).status
+  console.log(gameState)
   // checkForWinner()
   // checkForTie()
 }

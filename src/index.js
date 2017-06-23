@@ -8,15 +8,22 @@ import './index.css'
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
 window.onload = function () {
+  // yellow (player 1) input
   let yellowPlayerInput = window.prompt('Enter Player 1 Name')
   if (yellowPlayerInput !== '') {
     window.appState.yellowPlayerName = yellowPlayerInput
   }
+  if (yellowPlayerInput === null) {
+    window.appState.yellowPlayerName = 'Player 1'
+  }
+  // red (player 2) input
   let redPlayerInput = window.prompt('Enter Player 2 Name')
   if (redPlayerInput !== '') {
     window.appState.redPlayerName = redPlayerInput
   }
-
+  if (redPlayerInput === null) {
+    window.appState.redPlayerName = 'Player 2'
+  }
   window.alert('Have Fun!')
 }
 
