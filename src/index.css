@@ -84,6 +84,12 @@ h6 {
   padding: 1%;
 }
 
+.game-over {
+  background-color: gray;
+  flex: 1;
+  padding: 1%;
+}
+
 .column:hover {
   background-color: gray;
 }
@@ -115,8 +121,22 @@ h6 {
   width: 4vw;
 }
 
-.winner-gamepiece {
-  border: 3px solid
+.red-gamepiece-winner {
+  background-color: red;
+  border-radius: 2vw;
+  border: 3px solid #00ff00;
+  height: 4vw;
+  margin: 0.3vw auto;
+  width: 4vw;
+}
+
+.yellow-gamepiece-winner {
+  background-color: yellow;
+  border-radius: 2vw;
+  border: 3px solid #00ff00;
+  height: 4vw;
+  margin: 0.3vw auto;
+  width: 4vw;
 }
 
 .link {

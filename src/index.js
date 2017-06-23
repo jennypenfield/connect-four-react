@@ -7,6 +7,7 @@ import './index.css'
 
 const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
 
+// onload alerts to enter player 1 and player 2 names
 window.onload = function () {
   // yellow (player 1) input
   let yellowPlayerInput = window.prompt('Enter Player 1 Name')
@@ -34,7 +35,7 @@ const INITIAL_STATE = {
   redPlayerName: 'Player 2',
   yellowTotalWins: 0,
   redTotalWins: 0,
-  currentPlayer: 'yellow',
+  currentPlayer: 'y',
   gameOver: false,
   winnerCoord: null
 }
