@@ -20,7 +20,6 @@ function Column (board) {
         </div>
       )
     } else {
-      // Show win in Circles. Columns display normally. No onClick if there is a winner.
       return (
         <div key={index} className='column'>
           {Circles(column)}
