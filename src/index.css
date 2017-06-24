@@ -124,7 +124,8 @@ h6 {
 .red-gamepiece-winner {
   background-color: red;
   border-radius: 2vw;
-  border: 3px solid #00ff00;
+  border: 1px solid black;
+  box-shadow: 0 0 0 2px #00ff00;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -133,7 +134,8 @@ h6 {
 .yellow-gamepiece-winner {
   background-color: yellow;
   border-radius: 2vw;
-  border: 3px solid #00ff00;
+  border: 1px solid black;
+  box-shadow: 0 0 0 2px #00ff00;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;

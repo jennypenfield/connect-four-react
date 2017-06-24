@@ -10,19 +10,20 @@ function Column (board) {
     if (gameState === 'tie') {
       return (
         <div key={index} className='game-over'>
-          {Circles(column)}
+          {Circles(column, index)}
         </div>
       )
     } else if (gameState === 'in_progress') {
       return (
         <div key={index} className='column' onClick={pushGamepiece.bind(null, index)}>
-          {Circles(column)}
+          {Circles(column, index)}
         </div>
       )
     } else {
+      // Show win in Circles. Columns display normally. No onClick if there is a winner.
       return (
         <div key={index} className='column'>
-          {Circles(column)}
+          {Circles(column, index)}
         </div>
       )
     }

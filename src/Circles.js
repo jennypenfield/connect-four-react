@@ -12,8 +12,7 @@ function Circles (column, indexRow) {
     if (gameState === 'winner_yellow' || gameState === 'winner_red') {
       let winningCoords = gameStatus(appState.board).coordinates
       winningCoords.forEach(function (coord) {
-        console.log(coord[0], coord[1], indexRow, index)
-        if (coord[0] === index && coord[1] === indexRow) {
+        if (coord[0] === indexRow && coord[1] === index) {
           className += '-winner'
         }
       })
