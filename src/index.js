@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Board from './Board.js'
 import Scoreboard from './Scoreboard.js'
+import StartOverBtn from './StartOverBtn.js'
 import connect4Lib from 'connect4-lib'
 import './index.css'
 
@@ -12,33 +13,33 @@ window.onload = function () {
   // yellow (player 1) input
   let yellowPlayerInput = window.prompt('Enter Player 1 Name')
   if (yellowPlayerInput !== '') {
-    window.appState.yellowPlayerName = yellowPlayerInput
+    appState.yellowPlayerName = yellowPlayerInput
   }
   if (yellowPlayerInput === null) {
-    window.appState.yellowPlayerName = 'Player 1'
+    appState.yellowPlayerName = 'Player 1'
   }
   // red (player 2) input
   let redPlayerInput = window.prompt('Enter Player 2 Name')
   if (redPlayerInput !== '') {
-    window.appState.redPlayerName = redPlayerInput
+    appState.redPlayerName = redPlayerInput
   }
   if (redPlayerInput === null) {
-    window.appState.redPlayerName = 'Player 2'
+    appState.redPlayerName = 'Player 2'
   }
   window.alert('Have Fun!')
 }
 
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
-  gameStatus: connect4Lib.gameStatus,
   yellowPlayerName: 'Player 1',
   redPlayerName: 'Player 2',
   yellowTotalWins: 0,
   redTotalWins: 0,
   currentPlayer: 'y',
-  gameOver: false,
-  winnerCoord: null
+  isGameOver: false
 }
+
+let appState = INITIAL_STATE
 
 function StateExplorer (state) {
   const stateJSON = JSON.stringify(state, null, 2)
@@ -60,23 +61,66 @@ function App (state) {
   return (
     <div className='app-container'>
       <h1>CONNECT FOUR</h1>
-      <div className='buttons-board-scoreboard-container'>
+      <div className='board-scoreboard-container'>
         <div className='left-container' />
         {Board(state.board)}
         {Scoreboard(state.yellowPlayerName, state.redPlayerName, state.yellowTotalWins,
           state.redTotalWins)}
       </div>
-      <button className='game-btn' onClick={startOverBtn}>Start Over</button>
+      {checkGameOver(state)}
+      {StartOverBtn()}
       {stateExplorerComponent}
       <h6>designed by <a className='link' href='https://github.com/jennypenfield'>jenny penfield</a></h6>
     </div>
   )
 }
 
-function startOverBtn () {
-  return (
+function checkGameOver (state) {
+  if (connect4Lib.gameStatus(state.board).status !== 'in_progress') {
+    if (state.isGameOver === false) {
+      let winner = connect4Lib.gameStatus(state.board).status
+      updateTotalWins(state, winner)
+      alertGameOverPlayAgain(state, winner)
+    }
+  }
+}
+
+function updateTotalWins (state, winner) {
+  state.isGameOver = true
+  if (winner === 'winner_yellow') {
+    console.log('winneryellow')
+    state.yellowTotalWins++
+    return
+  } else {
+    state.redTotalWins++
+    return
+  }
+}
+
+function alertGameOverPlayAgain (state, winner) {
+  if (winner === 'winner_yellow') {
+    let winnerName = state.yellowPlayerName
+    window.alert(winnerName + ' wins the game! Stellar! Click OK to keep playing.')
+  } else if (winner === 'winner_red') {
+    let winnerName = state.redPlayerName
+    window.alert(winnerName + ' wins the game! Magnificent! Click OK to keep playing.')
+  } else {
+    window.alert('It is a tie game!')
+  }
+  startNewGame(state, winner)
+}
+
+// loser goes first
+function startNewGame (state, winner) {
+  if (winner === 'winner_yellow') {
+    console.log('startnewgame')
     window.appState = INITIAL_STATE
-  )
+    window.appState.currentPlayer = 'r'
+    console.log(window.appState)
+  } else {
+    window.appState = INITIAL_STATE
+    console.log(window.appState)
+  }
 }
 
 // ---------------------------------------------------------
@@ -91,3 +135,5 @@ function renderNow () {
 }
 
 window.requestAnimationFrame(renderNow)
+
+export default appState

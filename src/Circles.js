@@ -7,7 +7,7 @@ function Circles (column, indexRow) {
   let columnArray = column.map(function (gamepiece, index) {
     if (gamepiece === 'y') className = 'yellow-gamepiece'
     if (gamepiece === 'r') className = 'red-gamepiece'
-    // check for winner and set class of the winning coords
+    // check for winner and set class of winning coords
     let gameState = gameStatus(appState.board).status
     if (gameState === 'winner_yellow' || gameState === 'winner_red') {
       let winningCoords = gameStatus(appState.board).coordinates

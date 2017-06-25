@@ -6,23 +6,15 @@ import {gameStatus} from 'connect4-lib'
 function Column (board) {
   let arrColumns = board.map(function (column, index) {
     let gameState = gameStatus(appState.board).status
-    // if there is a tie, show board (columns) as gray, no onClick if game over
-    if (gameState === 'tie') {
-      return (
-        <div key={index} className='game-over'>
-          {Circles(column, index)}
-        </div>
-      )
-    } else if (gameState === 'in_progress') {
+    if (gameState === 'in_progress') {
       return (
         <div key={index} className='column' onClick={pushGamepiece.bind(null, index)}>
           {Circles(column, index)}
         </div>
-      )
+      )     // if there is a tie or winner, show board (columns) as gray, no onClick if game over
     } else {
-      // Show win in Circles. Columns display normally. No onClick if there is a winner.
       return (
-        <div key={index} className='column'>
+        <div key={index} className='game-over-column'>
           {Circles(column, index)}
         </div>
       )
@@ -36,7 +28,9 @@ function pushGamepiece (index) {
   for (let i = columnClicked.length - 1; i >= 0; i--) {
     if (columnClicked[i] === null) {
       columnClicked[i] = appState.currentPlayer
-      changeTurns()
+      if (gameStatus(appState.board).status === 'in_progress') {
+        changeTurns()
+      }
       return
     }
   }
