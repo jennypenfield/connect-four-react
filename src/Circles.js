@@ -10,6 +10,7 @@ function Circles (column, indexRow) {
     // check for winner and set class of winning coords
     let gameState = gameStatus(appState.board).status
     if (gameState === 'winner_yellow' || gameState === 'winner_red') {
+      if (appState.isGameOver === false) updateTotalWins()
       let winningCoords = gameStatus(appState.board).coordinates
       winningCoords.forEach(function (coord) {
         if (coord[0] === indexRow && coord[1] === index) {
@@ -24,4 +25,15 @@ function Circles (column, indexRow) {
   return columnArray
 }
 
+function updateTotalWins () {
+  if (gameStatus(appState.board).status === 'winner_yellow') {
+    appState.yellowTotalWins++
+    appState.isGameOver = true
+    return
+  } else {
+    appState.redTotalWins++
+    appState.isGameOver = true
+    return
+  }
+}
 export default Circles

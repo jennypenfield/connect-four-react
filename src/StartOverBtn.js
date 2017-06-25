@@ -1,5 +1,4 @@
 import React from 'react'
-import connect4Lib from 'connect4-lib'
 
 function StartOverBtn () {
   return (
@@ -9,7 +8,13 @@ function StartOverBtn () {
 
 function matchReset () {
   window.appState = {
-    board: connect4Lib.EMPTY_BOARD,
+    board:  [[null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null]],
     yellowPlayerName: 'Player 1',
     redPlayerName: 'Player 2',
     yellowTotalWins: 0,

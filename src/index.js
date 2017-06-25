@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Board from './Board.js'
+import DisplayGameOver from './DisplayGameOver.js'
 import Scoreboard from './Scoreboard.js'
 import StartOverBtn from './StartOverBtn.js'
 import connect4Lib from 'connect4-lib'
@@ -26,7 +27,7 @@ window.onload = function () {
   if (redPlayerInput === null) {
     appState.redPlayerName = 'Player 2'
   }
-  window.alert('Have Fun!')
+  // window.alert('Have Fun!')
 }
 
 const INITIAL_STATE = {
@@ -62,65 +63,18 @@ function App (state) {
     <div className='app-container'>
       <h1>CONNECT FOUR</h1>
       <div className='board-scoreboard-container'>
-        <div className='left-container' />
+        <div className='left-container'>
+          {DisplayGameOver(state)}
+        </div>
         {Board(state.board)}
         {Scoreboard(state.yellowPlayerName, state.redPlayerName, state.yellowTotalWins,
           state.redTotalWins)}
       </div>
-      {checkGameOver(state)}
       {StartOverBtn()}
       {stateExplorerComponent}
       <h6>designed by <a className='link' href='https://github.com/jennypenfield'>jenny penfield</a></h6>
     </div>
   )
-}
-
-function checkGameOver (state) {
-  if (connect4Lib.gameStatus(state.board).status !== 'in_progress') {
-    if (state.isGameOver === false) {
-      let winner = connect4Lib.gameStatus(state.board).status
-      updateTotalWins(state, winner)
-      alertGameOverPlayAgain(state, winner)
-    }
-  }
-}
-
-function updateTotalWins (state, winner) {
-  state.isGameOver = true
-  if (winner === 'winner_yellow') {
-    console.log('winneryellow')
-    state.yellowTotalWins++
-    return
-  } else {
-    state.redTotalWins++
-    return
-  }
-}
-
-function alertGameOverPlayAgain (state, winner) {
-  if (winner === 'winner_yellow') {
-    let winnerName = state.yellowPlayerName
-    window.alert(winnerName + ' wins the game! Stellar! Click OK to keep playing.')
-  } else if (winner === 'winner_red') {
-    let winnerName = state.redPlayerName
-    window.alert(winnerName + ' wins the game! Magnificent! Click OK to keep playing.')
-  } else {
-    window.alert('It is a tie game!')
-  }
-  startNewGame(state, winner)
-}
-
-// loser goes first
-function startNewGame (state, winner) {
-  if (winner === 'winner_yellow') {
-    console.log('startnewgame')
-    window.appState = INITIAL_STATE
-    window.appState.currentPlayer = 'r'
-    console.log(window.appState)
-  } else {
-    window.appState = INITIAL_STATE
-    console.log(window.appState)
-  }
 }
 
 // ---------------------------------------------------------
@@ -135,5 +89,3 @@ function renderNow () {
 }
 
 window.requestAnimationFrame(renderNow)
-
-export default appState

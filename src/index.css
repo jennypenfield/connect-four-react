@@ -27,6 +27,10 @@ h1 {
   padding: 2vw;
 }
 
+h2 {
+  font-size: 2vw;
+}
+
 h6 {
   font-size: 1vw;
 }
@@ -41,7 +45,15 @@ h6 {
 }
 
 .left-container {
-  flex: 2;
+  flex: 1.9;
+}
+
+.winner-background {
+  background-image: radial-gradient(#fff, #ff6600);
+  border: #ff6600;
+  border-radius: 0.5vw;
+  margin: 2vw;
+  padding: 2vw;
 }
 
 .game-btn {
@@ -91,7 +103,7 @@ h6 {
 }
 
 .game-over-column {
-  background-color: gray;
+  background-color: #000;
   flex: 1;
   padding: 1%;
 }
@@ -103,7 +115,7 @@ h6 {
 .white-circle {
   background-color: white;
   border-radius: 2vw;
-  border: 1px solid black;
+  border: 1px solid #000099;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -112,7 +124,7 @@ h6 {
 .red-gamepiece {
   background-color: red;
   border-radius: 2vw;
-  border: 1px solid black;
+  border: 1px solid red;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -121,7 +133,7 @@ h6 {
 .yellow-gamepiece {
   background-color: yellow;
   border-radius: 2vw;
-  border: 1px solid black;
+  border: 1px solid yellow;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -130,8 +142,8 @@ h6 {
 .red-gamepiece-winner {
   background-color: red;
   border-radius: 2vw;
-  border: 1px solid black;
-  box-shadow: 0 0 0 2px #00ff00;
+  border: 1px solid red;
+  box-shadow: 0 0 0 0.15vw #00ff00;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -140,8 +152,8 @@ h6 {
 .yellow-gamepiece-winner {
   background-color: yellow;
   border-radius: 2vw;
-  border: 1px solid black;
-  box-shadow: 0 0 0 2px #00ff00;
+  border: 1px solid yellow;
+  box-shadow: 0 0 0 0.15vw #00ff00;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -150,8 +162,8 @@ h6 {
 .red-gamepiece-active {
   background-color: red;
   border-radius: 2vw;
-  border: 1px solid black;
-  box-shadow: 0 0 0 4px #00ff00;
+  border: 1px solid red;
+  box-shadow: 0 0 0 0.5vw #00ff00;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;
@@ -160,8 +172,8 @@ h6 {
 .yellow-gamepiece-active {
   background-color: yellow;
   border-radius: 2vw;
-  border: 1px solid black;
-  box-shadow: 0 0 0 4px #00ff00;
+  border: 1px solid yellow;
+  box-shadow: 0 0 0 0.5vw #00ff00;
   height: 4vw;
   margin: 0.3vw auto;
   width: 4vw;

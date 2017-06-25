@@ -1,5 +1,5 @@
 import React from 'react'
-import connect4Lib from 'connect4-lib'
+import {gameStatus} from 'connect4-lib'
 
 function Scoreboard (yellowPlayerName, redPlayerName, yellowPlayerTotalWins, redPlayerTotalWins) {
   return (
@@ -21,14 +21,14 @@ function Scoreboard (yellowPlayerName, redPlayerName, yellowPlayerTotalWins, red
 // highlight current player gamepiece in scoreboard container
 function getYellowGamepieceClass () {
   if (window.appState.currentPlayer === 'y' &&
-  connect4Lib.gameStatus(window.appState.board).status === 'in_progress') {
+  gameStatus(window.appState.board).status === 'in_progress') {
     return 'yellow-gamepiece-active'
   } else return 'yellow-gamepiece'
 }
 
 function getRedGamepieceClass () {
   if (window.appState.currentPlayer === 'r' &&
-  connect4Lib.gameStatus(window.appState.board).status === 'in_progress') {
+  gameStatus(window.appState.board).status === 'in_progress') {
     return 'red-gamepiece-active'
   } else return 'red-gamepiece'
 }
