@@ -35,23 +35,33 @@ h6 {
   font-size: 1vw;
 }
 
-.player-fonts {
-  font-size: 1.2vw;
+.user-input-box {
+  background-color: #fff;
+  border: 2px solid #000099;
+  height: 30vw;
+  margin: 0 auto;
+  position: absolute;
+  width: 30vw;
+  z-index: 100;
 }
 
-.board-scoreboard-container {
+.player-fonts {
+  font-size: 2vw;
+}
+
+.messages-board-scoreboard-container {
   display: flex;
   flex-direction: row;
 }
 
-.left-container {
+.messages-container {
   flex: 1.9;
 }
 
 .winner-background {
   background-image: radial-gradient(#fff, #ff6600);
   border: #ff6600;
-  border-radius: 0.5vw;
+  border-radius: 1.5vw;
   margin: 2vw;
   padding: 2vw;
 }
@@ -74,7 +84,7 @@ h6 {
 .board-container {
   border: #b3b3ff solid 3px;
   background-color: black;
-  border-radius: 10px;
+  border-radius: 3vw;
   display: flex;
   flex: 2.3;
   overflow-y: hidden;
@@ -84,11 +94,6 @@ h6 {
   display: flex;
   flex-direction: column;
   flex: 2;
-}
-
-.inner-scoreboard-containers {
-  flex: 1;
-  padding-top: 3vw;
 }
 
 .inner-scoreboard-containers {
@@ -180,6 +185,111 @@ h6 {
 }
 
 .link {
-  color: magenta;
+  color: red;
   text-decoration: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*Media Queries*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* Portrait */
+@media only screen and (max-device-width: 480px)
+and (orientation: portrait) {
+
+    h1 {
+      font-size: 7vw;
+      padding-top: 8vw;
+      padding-bottom: 8vw;
+    }
+
+    h2 {
+      font-size: 2.6vw;
+    }
+
+    h6 {
+      font-size: 2vw;
+    }
+
+    .messages-board-scoreboard-container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+
+    .messages-container {
+      flex: 2;
+      margin: 0 20vw;
+      order: 3;
+    }
+
+    .board-container {
+      border: #b3b3ff solid 3px;
+      border-radius: 3vw;
+      display: flex;
+      flex: 5;
+      order: 1;
+    }
+
+    .game-btn {
+      font-size: 3vw;
+    }
+
+    .scoreboard-container {
+      display: flex;
+      flex-direction: row;
+      flex: 3;
+      order: 2;
+      padding: 4vw;
+    }
+
+    .white-circle {
+      border-radius: 5vw;
+      height: 10vw;
+      margin: 0.2vw auto;
+      width: 10vw;
+    }
+
+    .yellow-gamepiece {
+      border-radius: 5vw;
+      height: 10vw;
+      margin: 0.2vw auto;
+      width: 10vw;
+    }
+
+    .red-gamepiece {
+      border-radius: 5vw;
+      height: 10vw;
+      margin: 0.2vw auto;
+      width: 10vw;
+    }
+
+    .yellow-gamepiece-active {
+      border-radius: 5vw;
+      box-shadow: 0 0 0 1.5vw #00ff00;
+      height: 10vw;
+      width: 10vw;
+    }
+
+    .red-gamepiece-active {
+      border-radius: 5vw;
+      box-shadow: 0 0 0 1.5vw #00ff00;
+      height: 10vw;
+      width: 10vw;
+    }
+
+    .yellow-gamepiece-winner {
+      border-radius: 5vw;
+      box-shadow: 0 0 0 0.3vw #00ff00;
+      height: 10vw;
+      width: 10vw;
+    }
+
+    .red-gamepiece-winner {
+      border-radius: 5vw;
+      box-shadow: 0 0 0 0.3vw #00ff00;
+      height: 10vw;
+      width: 10vw;
+    }
 }
