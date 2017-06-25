@@ -2,6 +2,10 @@
 
 Build the classic game [Connect Four] using JavaScript and React.js.
 
+<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
+
+[View on Surge](http://connect4-react-app-jp.surge.sh/)
+
 ## Required Features
 
 - Built using [React]
