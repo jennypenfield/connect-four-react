@@ -38,10 +38,12 @@ h6 {
 .user-input-box {
   background-color: #fff;
   border: 2px solid #000099;
+  font-size: 4vw;
   height: 30vw;
-  margin: 0 auto;
+  margin-left: 20vw;
+  margin-top: 40vw;
   position: absolute;
-  width: 30vw;
+  width: 60vw;
   z-index: 100;
 }
 
@@ -193,14 +195,14 @@ h6 {
 /*Media Queries*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* Portrait */
+/* Portrait iPhone 5 or smaller */
 @media only screen and (max-device-width: 480px)
 and (orientation: portrait) {
 
     h1 {
-      font-size: 7vw;
-      padding-top: 8vw;
-      padding-bottom: 8vw;
+      font-size: 9vw;
+      padding-top: 5vw;
+      padding-bottom: 5vw;
     }
 
     h2 {
@@ -292,4 +294,11 @@ and (orientation: portrait) {
       height: 10vw;
       width: 10vw;
     }
+}
+
+@media only screen and (max-device-width: 480px)
+and (orientation: landscape) {
+  h1 {
+    color: white;
+  }
 }

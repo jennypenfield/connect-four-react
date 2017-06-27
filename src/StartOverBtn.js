@@ -1,4 +1,6 @@
+/* global appState */
 import React from 'react'
+import GetUserInput from './GetUserInput.js'
 
 function StartOverBtn () {
   return (
@@ -20,11 +22,10 @@ function matchReset () {
     yellowTotalWins: 0,
     redTotalWins: 0,
     currentPlayer: 'y',
-    gameOver: false,
-    getUserInput: true
+    isGameOver: false,
+    showPlayerInputForm: true
   }
-
-  // getPlayerInput()
+  GetUserInput(appState)
 }
 
 export default StartOverBtn

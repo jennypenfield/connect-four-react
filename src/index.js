@@ -8,8 +8,6 @@ import StartOverBtn from './StartOverBtn.js'
 import connect4Lib from 'connect4-lib'
 import './index.css'
 
-const showStateExplorer = document.location.search.indexOf('stateexplorer') !== -1
-
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
   yellowPlayerName: 'Player 1',
@@ -18,32 +16,16 @@ const INITIAL_STATE = {
   redTotalWins: 0,
   currentPlayer: 'y',
   isGameOver: false,
-  getUserInput: true
-}
-
-let appState = INITIAL_STATE
-
-function StateExplorer (state) {
-  const stateJSON = JSON.stringify(state, null, 2)
-
-  return (
-    <section id='explorerContainer'>
-      <h1>State Explorer</h1>
-      <textarea value={stateJSON} />
-    </section>
-  )
+  showPlayerInputForm: true
 }
 
 window.appState = INITIAL_STATE
 
 function App (state) {
-  let stateExplorerComponent = null
-  if (showStateExplorer) stateExplorerComponent = StateExplorer(state)
-
   return (
     <div className='app-container'>
       <h1>CONNECT FOUR</h1>
-      {GetUserInput()}
+      {GetUserInput(state)}
       <div className='messages-board-scoreboard-container'>
         <div className='messages-container'>
           {DisplayGameOver(state)}
@@ -53,7 +35,6 @@ function App (state) {
           state.redTotalWins)}
       </div>
       {StartOverBtn()}
-      {stateExplorerComponent}
       <h6>designed by <a className='link' href='https://github.com/jennypenfield'>jenny penfield</a></h6>
     </div>
   )
