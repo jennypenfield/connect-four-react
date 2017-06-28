@@ -10,8 +10,8 @@ import './index.css'
 
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
-  yellowPlayerName: 'Player 1',
-  redPlayerName: 'Player 2',
+  yellowPlayerName: '',
+  redPlayerName: '',
   yellowTotalWins: 0,
   redTotalWins: 0,
   currentPlayer: 'y',
@@ -22,10 +22,12 @@ const INITIAL_STATE = {
 window.appState = INITIAL_STATE
 
 function App (state) {
+  let page = null
+  if (state.showPlayerInputForm) page = GetUserInput(state)
   return (
     <div className='app-container'>
       <h1>CONNECT FOUR</h1>
-      {GetUserInput(state)}
+      {page}
       <div className='messages-board-scoreboard-container'>
         <div className='messages-container'>
           {DisplayGameOver(state)}

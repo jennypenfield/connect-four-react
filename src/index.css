@@ -12,19 +12,14 @@ body {
   overflow-y: hidden;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-}
-
 h1 {
   background-image: radial-gradient(#ffffff, #ffff99);
   border-bottom: 2px #000099 solid;
   font-size: 4vw;
   letter-spacing: 1vw;
-  margin-bottom: 4vw;
+  margin-bottom: 2vw;
   margin-top: 0vw;
-  padding: 2vw;
+  padding: 1vw;
 }
 
 h2 {
@@ -39,21 +34,34 @@ h6 {
   background-color: #fff;
   border: 2px solid #000099;
   font-size: 4vw;
-  height: 30vw;
-  margin-left: 20vw;
-  margin-top: 40vw;
+  height: 20vw;
+  margin-left: 40vw;
+  margin-top: 10vw;
   position: absolute;
-  width: 60vw;
+  width: 20vw;
   z-index: 100;
 }
 
+.player-box {
+  border: 1px black solid;
+  margin-bottom: 0.5vw;
+  width: 16vw;
+}
+
+.start-game-btn {
+  background-color: #000099;
+  border: 1px solid #000099;
+  border-radius: 0.25vw;
+  color: #fff;
+  margin-top: 3vw;
+}
+
 .player-fonts {
-  font-size: 2vw;
+  font-size: 1vw;
 }
 
 .messages-board-scoreboard-container {
   display: flex;
-  flex-direction: row;
 }
 
 .messages-container {
@@ -150,20 +158,20 @@ h6 {
   background-color: red;
   border-radius: 2vw;
   border: 1px solid red;
-  box-shadow: 0 0 0 0.15vw #00ff00;
-  height: 4vw;
+  box-shadow: 0 0 0 0.20vw #00ff00;
+  height: 3.95vw;
   margin: 0.3vw auto;
-  width: 4vw;
+  width: 3.95vw;
 }
 
 .yellow-gamepiece-winner {
   background-color: yellow;
   border-radius: 2vw;
   border: 1px solid yellow;
-  box-shadow: 0 0 0 0.15vw #00ff00;
-  height: 4vw;
+  box-shadow: 0 0 0 0.20vw #00ff00;
+  height: 3.8vw;
   margin: 0.3vw auto;
-  width: 4vw;
+  width: 3.8vw;
 }
 
 .red-gamepiece-active {
@@ -213,6 +221,20 @@ and (orientation: portrait) {
       font-size: 2vw;
     }
 
+    .player-fonts {
+      font-size: 2vw;
+    }
+
+    .user-input-box {
+      height: 50vw;
+      margin-left: 25vw;
+      width: 50vw;
+    }
+
+    .player-box {
+      width: 40vw;
+    }
+
     .messages-board-scoreboard-container {
       display: flex;
       flex-direction: column;
@@ -243,7 +265,7 @@ and (orientation: portrait) {
       flex-direction: row;
       flex: 3;
       order: 2;
-      padding: 4vw;
+      padding: 1vw;
     }
 
     .white-circle {
@@ -282,17 +304,17 @@ and (orientation: portrait) {
     }
 
     .yellow-gamepiece-winner {
-      border-radius: 5vw;
+      border-radius: 4.9vw;
       box-shadow: 0 0 0 0.3vw #00ff00;
-      height: 10vw;
-      width: 10vw;
+      height: 9.8vw;
+      width: 9.8vw;
     }
 
     .red-gamepiece-winner {
-      border-radius: 5vw;
+      border-radius: 4.9vw;
       box-shadow: 0 0 0 0.3vw #00ff00;
-      height: 10vw;
-      width: 10vw;
+      height: 9.8vw;
+      width: 9.8vw;
     }
 }
 

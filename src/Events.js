@@ -2,15 +2,27 @@
 import React from 'react'
 
 function handlePlayerInput (evt) {
-  console.log('handleplayerinput')
   let player = evt.target
-  if (player.name === 'player1') appState.yellowPlayerName = player.value
-  if (player.name === 'player2') appState.redPlayerName = player.value
+  console.log(player.value);
+  if (player.name === 'player1') {
+    if (player.value === '' || player.value === null) {
+      appState.yellowPlayerName = 'Player 1'
+    } else {
+      appState.yellowPlayerName = player.value
+      console.log('player1');
+    }
+  } else {
+    if (player.value === '' || player.value === null) {
+      appState.redPlayerName = 'Player 2'
+    } else {
+      appState.redPlayerName = player.value
+      console.log('player2');
+    }
+  }
 }
 
 function handleClick () {
   appState.showPlayerInputForm = false
-  console.log(appState.showPlayerInputForm)
 }
 
 export {
