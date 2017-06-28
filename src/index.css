@@ -28,15 +28,16 @@ h2 {
 
 h6 {
   font-size: 1vw;
+  margin-bottom: -0.25vw;
 }
 
 .user-input-box {
   background-color: #fff;
-  border: 2px solid #000099;
+  border: 2px solid red;
   font-size: 4vw;
   height: 20vw;
   margin-left: 40vw;
-  margin-top: 10vw;
+  margin-top: 3vw;
   position: absolute;
   width: 20vw;
   z-index: 100;

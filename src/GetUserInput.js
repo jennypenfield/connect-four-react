@@ -4,7 +4,7 @@ import {handlePlayerInput, handleClick} from './Events.js'
 function GetUserInput (state) {
   return (
     <div className='user-input-box'>
-      <h6>Enter player names:</h6>
+      <h2>Enter player names:</h2>
       <input name='player1' onChange={handlePlayerInput} className='player-box'
         value={state.yellowPlayerName} placeholder='Player 1' type='text' />
       <input name='player2' onChange={handlePlayerInput} className='player-box'
