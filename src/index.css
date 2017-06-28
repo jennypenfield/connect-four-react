@@ -98,6 +98,7 @@ h6 {
   border-radius: 3vw;
   display: flex;
   flex: 2.3;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 
@@ -160,9 +161,9 @@ h6 {
   border-radius: 2vw;
   border: 1px solid red;
   box-shadow: 0 0 0 0.20vw #00ff00;
-  height: 3.95vw;
-  margin: 0.3vw auto;
-  width: 3.95vw;
+  height: 4vw;
+  margin: 0.28vw auto;
+  width: 4vw;
 }
 
 .yellow-gamepiece-winner {
@@ -170,9 +171,9 @@ h6 {
   border-radius: 2vw;
   border: 1px solid yellow;
   box-shadow: 0 0 0 0.20vw #00ff00;
-  height: 3.8vw;
-  margin: 0.3vw auto;
-  width: 3.8vw;
+  height: 4vw;
+  margin: 0.28vw auto;
+  width: 4vw;
 }
 
 .red-gamepiece-active {
