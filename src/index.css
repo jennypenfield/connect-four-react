@@ -45,7 +45,7 @@ h6 {
 
 .player-box {
   border: 1px black solid;
-  margin-bottom: 0.5vw;
+  font-size: 2vw;
   width: 16vw;
 }
 
@@ -54,7 +54,7 @@ h6 {
   border: 1px solid #000099;
   border-radius: 0.25vw;
   color: #fff;
-  margin-top: 3vw;
+  margin-top: 1.5vw;
 }
 
 .player-fonts {
@@ -66,7 +66,7 @@ h6 {
 }
 
 .messages-container {
-  flex: 1.9;
+  flex: 2;
 }
 
 .winner-background {
@@ -205,124 +205,135 @@ h6 {
 /*Media Queries*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* Portrait iPhone 5 or smaller */
-@media only screen and (max-device-width: 480px)
-and (orientation: portrait) {
+/* Portrait for iPhone 6 and smaller */
+@media only screen and (max-device-width: 480px) {
 
-    h1 {
-      font-size: 9vw;
-      padding-top: 5vw;
-      padding-bottom: 5vw;
-    }
+  h1 {
+    font-size: 9vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+  }
 
-    h2 {
-      font-size: 2.6vw;
-    }
+  h2 {
+    font-size: 2.6vw;
+  }
 
-    h6 {
-      font-size: 2vw;
-    }
+  h6 {
+    font-size: 2vw;
+  }
 
-    .player-fonts {
-      font-size: 2vw;
-    }
+  .player-fonts {
+    font-size: 2vw;
+  }
 
-    .user-input-box {
-      height: 50vw;
-      margin-left: 25vw;
-      width: 50vw;
-    }
+  .user-input-box {
+    height: 40vw;
+    margin-left: 25vw;
+    width: 50vw;
+  }
 
-    .player-box {
-      width: 40vw;
-    }
+  .player-box {
+    margin-top: 5vw;
+    width: 40vw;
+  }
 
-    .messages-board-scoreboard-container {
-      display: flex;
-      flex-direction: column;
-      margin-left: 5vw;
-      margin-right: 5vw;
-    }
+  .messages-board-scoreboard-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
 
-    .messages-container {
-      flex: 2;
-      margin: 0 20vw;
-      order: 3;
-    }
+  .messages-container {
+    flex: 2;
+    margin: 0 20vw;
+    order: 3;
+  }
 
-    .board-container {
-      border: #b3b3ff solid 3px;
-      border-radius: 3vw;
-      display: flex;
-      flex: 5;
-      order: 1;
-    }
+  .board-container {
+    border: #b3b3ff solid 3px;
+    border-radius: 3vw;
+    display: flex;
+    flex: 5;
+    order: 1;
+  }
 
-    .game-btn {
-      font-size: 3vw;
-    }
+  .game-btn {
+    font-size: 3vw;
+  }
 
-    .scoreboard-container {
-      display: flex;
-      flex-direction: row;
-      flex: 3;
-      order: 2;
-      padding: 1vw;
-    }
+  .start-game-btn {
+    margin-top: 5vw;
+  }
 
-    .white-circle {
-      border-radius: 5vw;
-      height: 10vw;
-      margin: 0.2vw auto;
-      width: 10vw;
-    }
+  .scoreboard-container {
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+    order: 2;
+    padding: 1vw;
+  }
 
-    .yellow-gamepiece {
-      border-radius: 5vw;
-      height: 10vw;
-      margin: 0.2vw auto;
-      width: 10vw;
-    }
+  .white-circle {
+    border-radius: 5vw;
+    height: 10vw;
+    margin: 0.2vw auto;
+    width: 10vw;
+  }
 
-    .red-gamepiece {
-      border-radius: 5vw;
-      height: 10vw;
-      margin: 0.2vw auto;
-      width: 10vw;
-    }
+  .yellow-gamepiece {
+    border-radius: 5vw;
+    height: 10vw;
+    margin: 0.2vw auto;
+    width: 10vw;
+  }
 
-    .yellow-gamepiece-active {
-      border-radius: 5vw;
-      box-shadow: 0 0 0 1.5vw #00ff00;
-      height: 10vw;
-      width: 10vw;
-    }
+  .red-gamepiece {
+    border-radius: 5vw;
+    height: 10vw;
+    margin: 0.2vw auto;
+    width: 10vw;
+  }
 
-    .red-gamepiece-active {
-      border-radius: 5vw;
-      box-shadow: 0 0 0 1.5vw #00ff00;
-      height: 10vw;
-      width: 10vw;
-    }
+  .yellow-gamepiece-active {
+    border-radius: 5vw;
+    box-shadow: 0 0 0 1.5vw #00ff00;
+    height: 10vw;
+    width: 10vw;
+  }
 
-    .yellow-gamepiece-winner {
-      border-radius: 4.9vw;
-      box-shadow: 0 0 0 0.3vw #00ff00;
-      height: 9.8vw;
-      width: 9.8vw;
-    }
+  .red-gamepiece-active {
+    border-radius: 5vw;
+    box-shadow: 0 0 0 1.5vw #00ff00;
+    height: 10vw;
+    width: 10vw;
+  }
 
-    .red-gamepiece-winner {
-      border-radius: 4.9vw;
-      box-shadow: 0 0 0 0.3vw #00ff00;
-      height: 9.8vw;
-      width: 9.8vw;
-    }
+  .yellow-gamepiece-winner {
+    border-radius: 4.9vw;
+    box-shadow: 0 0 0 0.3vw #00ff00;
+    height: 9.8vw;
+    width: 9.8vw;
+  }
+
+  .red-gamepiece-winner {
+    border-radius: 4.9vw;
+    box-shadow: 0 0 0 0.3vw #00ff00;
+    height: 9.8vw;
+    width: 9.8vw;
+  }
 }
 
-@media only screen and (max-device-width: 480px)
+/* Landscape for iPhone 6 and smaller */
+@media only screen and (max-device-width: 760px)
 and (orientation: landscape) {
-  h1 {
-    color: white;
+  .user-input-box {
+    height: 24vw;
+    margin-left: 35vw;
+    width: 30vw;
+  }
+
+  .player-box {
+    width: 27vw;
   }
 }

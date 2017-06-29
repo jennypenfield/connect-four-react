@@ -13,6 +13,7 @@ function handlePlayerInput () {
   } else {
     appState.redPlayerName = 'Player 2'
   }
+  window.alert('Touch the column to drop your piece. The piece highlighted in green goes first!')
 }
 
 function handleSubmit (evt) {
