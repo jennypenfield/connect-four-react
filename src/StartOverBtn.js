@@ -23,7 +23,9 @@ function matchReset () {
     redTotalWins: 0,
     currentPlayer: 'y',
     isGameOver: false,
-    showPlayerInputForm: true
+    showPlayerInputForm: true,
+    modalP1: '',
+    modalP2: ''
   }
   GetUserInput(appState)
 }

@@ -10,15 +10,15 @@ import './index.css'
 
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
-  modalP1: '',
-  modalP2: '',
   yellowPlayerName: '',
   redPlayerName: '',
   yellowTotalWins: 0,
   redTotalWins: 0,
   currentPlayer: 'y',
   isGameOver: false,
-  showPlayerInputForm: true
+  showPlayerInputForm: true,
+  modalP1: '',
+  modalP2: ''
 }
 
 window.appState = INITIAL_STATE
