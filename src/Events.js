@@ -1,31 +1,27 @@
 /* global appState */
-import React from 'react'
 
-function handlePlayerInput (evt) {
-  let player = evt.target
-  console.log(player.value);
-  if (player.name === 'player1') {
-    if (player.value === '' || player.value === null) {
-      appState.yellowPlayerName = 'Player 1'
-    } else {
-      appState.yellowPlayerName = player.value
-      console.log('player1');
-    }
+function handlePlayerInput () {
+  // set yellow player name
+  if (appState.modalP1.length > 0) {
+    appState.yellowPlayerName = appState.modalP1
   } else {
-    if (player.value === '' || player.value === null) {
-      appState.redPlayerName = 'Player 2'
-    } else {
-      appState.redPlayerName = player.value
-      console.log('player2');
-    }
+    appState.yellowPlayerName = 'Player 1'
+  }
+    // set red player name
+  if (appState.modalP2.length > 0) {
+    appState.redPlayerName = appState.modalP2
+  } else {
+    appState.redPlayerName = 'Player 2'
   }
 }
 
-function handleClick () {
+function handleSubmit (evt) {
+  evt.preventDefault()
+  handlePlayerInput()
   appState.showPlayerInputForm = false
 }
 
 export {
   handlePlayerInput,
-  handleClick
+  handleSubmit
 }

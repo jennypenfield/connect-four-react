@@ -10,6 +10,8 @@ import './index.css'
 
 const INITIAL_STATE = {
   board: connect4Lib.EMPTY_BOARD,
+  modalP1: '',
+  modalP2: '',
   yellowPlayerName: '',
   redPlayerName: '',
   yellowTotalWins: 0,
