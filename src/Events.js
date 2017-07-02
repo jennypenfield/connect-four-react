@@ -1,4 +1,44 @@
-/* global appState */
+/* global appState localStorage */
+import React from 'react'
+import GetUserInput from './GetUserInput.js'
+
+function saveState () {
+  localStorage.state = JSON.stringify(window.appState)
+}
+
+function getSavedState () {
+  if (typeof (localStorage.state) !== 'undefined') {
+    window.appState = JSON.parse(localStorage.state)
+  }
+}
+
+function StartOverBtn () {
+  return (
+    <button className='game-btn' onClick={matchReset}>Start Over</button>
+  )
+}
+
+function matchReset () {
+  window.appState = {
+    board:  [[null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null],
+            [null, null, null, null, null, null]],
+    yellowPlayerName: '',
+    redPlayerName: '',
+    yellowTotalWins: 0,
+    redTotalWins: 0,
+    currentPlayer: 'y',
+    isGameOver: false,
+    showPlayerInputForm: true,
+    modalP1: '',
+    modalP2: ''
+  }
+  GetUserInput(appState)
+}
 
 function handlePlayerInput () {
   // set yellow player name
@@ -24,5 +64,8 @@ function handleSubmit (evt) {
 
 export {
   handlePlayerInput,
-  handleSubmit
+  handleSubmit,
+  StartOverBtn,
+  getSavedState,
+  saveState
 }

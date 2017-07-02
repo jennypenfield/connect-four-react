@@ -4,7 +4,7 @@ import Board from './Board.js'
 import DisplayGameOver from './DisplayGameOver.js'
 import GetUserInput from './GetUserInput.js'
 import Scoreboard from './Scoreboard.js'
-import StartOverBtn from './StartOverBtn.js'
+import {StartOverBtn, getSavedState, saveState} from './Events.js'
 import connect4Lib from 'connect4-lib'
 import './index.css'
 
@@ -24,6 +24,7 @@ const INITIAL_STATE = {
 window.appState = INITIAL_STATE
 
 function App (state) {
+  saveState()
   let page = null
   if (state.showPlayerInputForm) page = GetUserInput(state)
   return (
@@ -43,6 +44,8 @@ function App (state) {
     </div>
   )
 }
+
+getSavedState()
 
 // ---------------------------------------------------------
 // Render Loop
