@@ -1,7 +1,7 @@
 /* global appState */
 import React from 'react'
 import Circles from './Circles.js'
-import {gameStatus} from 'connect4-lib'
+import {gameStatus} from 'connect-four-lib'
 
 function Column (board) {
   let arrColumns = board.map(function (column, index) {

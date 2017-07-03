@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "connect4-lib": "1.0.0"
+    "connect-four-lib": "3.0.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

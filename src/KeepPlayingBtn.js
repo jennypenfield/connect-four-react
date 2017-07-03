@@ -1,7 +1,6 @@
 /* global appState */
 import React from 'react'
-import {gameStatus} from 'connect4-lib'
-import {createEmptyBoard} from './Events.js'
+import {gameStatus, createEmptyBoard} from 'connect-four-lib'
 
 function KeepPlayingBtn () {
   return (

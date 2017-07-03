@@ -1,7 +1,7 @@
-/* global appState localStorage */
+/* global appState */
 import React from 'react'
 import GetUserInput from './GetUserInput.js'
-import connect4Lib from 'connect4-lib'
+import connectFourLib from 'connect-four-lib'
 
 function saveState () {
   window.localStorage.state = JSON.stringify(window.appState)
@@ -27,10 +27,10 @@ function StartOverBtn () {
 }
 
 function matchReset () {
-  console.log(connect4Lib.gameStatus(appState.board).status)
+  console.log(connectFourLib.gameStatus(appState.board).status)
   window.localStorage.clear()
   window.appState = {
-    board: createEmptyBoard(),
+    board: connectFourLib.createEmptyBoard(),
     yellowPlayerName: '',
     redPlayerName: '',
     yellowTotalWins: 0,
@@ -44,20 +44,7 @@ function matchReset () {
   GetUserInput(appState)
 }
 
-function createEmptyBoard () {
-  let board = []
-  for (let colIndex = 0; colIndex < 7; colIndex++) {
-    let columns = []
-    for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
-      columns.push(null)
-    }
-    board.push(columns)
-  }
-  return board
-}
-
 export {
-  createEmptyBoard,
   StartOverBtn,
   getSavedState,
   saveState

@@ -5,11 +5,11 @@ import DisplayGameOver from './DisplayGameOver.js'
 import GetUserInput from './GetUserInput.js'
 import Scoreboard from './Scoreboard.js'
 import {StartOverBtn, getSavedState, saveState} from './Events.js'
-import connect4Lib from 'connect4-lib'
+import connectFourLib from 'connect-four-lib'
 import './index.css'
 
 const INITIAL_STATE = {
-  board: connect4Lib.EMPTY_BOARD,
+  board: connectFourLib.createEmptyBoard(),
   yellowPlayerName: '',
   redPlayerName: '',
   yellowTotalWins: 0,

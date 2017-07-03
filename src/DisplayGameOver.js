@@ -1,6 +1,6 @@
 /* global appState */
 import React from 'react'
-import {gameStatus} from 'connect4-lib'
+import {gameStatus} from 'connect-four-lib'
 import KeepPlayingBtn from './KeepPlayingBtn.js'
 
 function DisplayGameOver (board) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import {gameStatus} from 'connect4-lib'
+import {gameStatus} from 'connect-four-lib'
 
 function Scoreboard (yellowPlayerName, redPlayerName, yellowPlayerTotalWins, redPlayerTotalWins) {
   return (
