@@ -1,14 +1,22 @@
 /* global appState localStorage */
 import React from 'react'
 import GetUserInput from './GetUserInput.js'
+import connect4Lib from 'connect4-lib'
 
 function saveState () {
-  localStorage.state = JSON.stringify(window.appState)
+  window.localStorage.state = JSON.stringify(window.appState)
 }
 
 function getSavedState () {
-  if (typeof (localStorage.state) !== 'undefined') {
-    window.appState = JSON.parse(localStorage.state)
+  let local = window.localStorage.state
+  window.appState = safelyParseJSON(local)
+}
+
+function safelyParseJSON (local) {
+  try {
+    return JSON.parse(local)
+  } catch (e) {
+    return window.appState
   }
 }
 
@@ -19,14 +27,10 @@ function StartOverBtn () {
 }
 
 function matchReset () {
+  console.log(connect4Lib.gameStatus(appState.board).status)
+  window.localStorage.clear()
   window.appState = {
-    board:  [[null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null],
-            [null, null, null, null, null, null]],
+    board: createEmptyBoard(),
     yellowPlayerName: '',
     redPlayerName: '',
     yellowTotalWins: 0,
@@ -40,31 +44,20 @@ function matchReset () {
   GetUserInput(appState)
 }
 
-function handlePlayerInput () {
-  // set yellow player name
-  if (appState.modalP1.length > 0) {
-    appState.yellowPlayerName = appState.modalP1
-  } else {
-    appState.yellowPlayerName = 'Player 1'
+function createEmptyBoard () {
+  let board = []
+  for (let colIndex = 0; colIndex < 7; colIndex++) {
+    let columns = []
+    for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
+      columns.push(null)
+    }
+    board.push(columns)
   }
-    // set red player name
-  if (appState.modalP2.length > 0) {
-    appState.redPlayerName = appState.modalP2
-  } else {
-    appState.redPlayerName = 'Player 2'
-  }
-  window.alert('Touch the column to drop your piece. The piece highlighted in green goes first!')
-}
-
-function handleSubmit (evt) {
-  evt.preventDefault()
-  handlePlayerInput()
-  appState.showPlayerInputForm = false
+  return board
 }
 
 export {
-  handlePlayerInput,
-  handleSubmit,
+  createEmptyBoard,
   StartOverBtn,
   getSavedState,
   saveState

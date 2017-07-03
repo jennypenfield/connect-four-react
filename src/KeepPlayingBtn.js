@@ -1,6 +1,7 @@
 /* global appState */
 import React from 'react'
 import {gameStatus} from 'connect4-lib'
+import {createEmptyBoard} from './Events.js'
 
 function KeepPlayingBtn () {
   return (
@@ -13,14 +14,7 @@ function keepPlaying () {
   let winner = gameStatus(appState.board).status
   if (winner === 'winner_yellow') {
     window.appState = {
-      board:
-      [[null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null]],
+      board: createEmptyBoard(),
       yellowPlayerName: appState.yellowPlayerName,
       redPlayerName: appState.redPlayerName,
       yellowTotalWins: appState.yellowTotalWins,
@@ -30,14 +24,7 @@ function keepPlaying () {
     }
   } else {
     window.appState = {
-      board:
-      [[null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null],
-      [null, null, null, null, null, null]],
+      board: createEmptyBoard(),
       yellowPlayerName: appState.yellowPlayerName,
       redPlayerName: appState.redPlayerName,
       yellowTotalWins: appState.yellowTotalWins,

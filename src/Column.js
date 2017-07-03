@@ -28,8 +28,11 @@ function pushGamepiece (index) {
   for (let i = columnClicked.length - 1; i >= 0; i--) {
     if (columnClicked[i] === null) {
       columnClicked[i] = appState.currentPlayer
-      if (gameStatus(appState.board).status === 'in_progress') {
+      let gameState = gameStatus(appState.board).status
+      if (gameState === 'in_progress') {
         changeTurns()
+      } else if (gameState === 'winner_red' || gameState === 'winner_yellow') {
+        updateTotalWins()
       }
       return
     }
@@ -41,6 +44,18 @@ function changeTurns () {
     appState.currentPlayer = 'r'
   } else {
     appState.currentPlayer = 'y'
+  }
+}
+
+function updateTotalWins () {
+  if (gameStatus(appState.board).status === 'winner_yellow') {
+    appState.yellowTotalWins++
+    appState.isGameOver = true
+    return
+  } else {
+    appState.redTotalWins++
+    appState.isGameOver = true
+    return
   }
 }
 

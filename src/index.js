@@ -24,16 +24,17 @@ const INITIAL_STATE = {
 window.appState = INITIAL_STATE
 
 function App (state) {
-  saveState()
   let page = null
   if (state.showPlayerInputForm) page = GetUserInput(state)
+  let displayGO = null
+  if (state.isGameOver === true) displayGO = DisplayGameOver(state.board)
   return (
     <div className='app-container'>
       <h1>CONNECT FOUR</h1>
       {page}
       <div className='messages-board-scoreboard-container'>
         <div className='messages-container'>
-          {DisplayGameOver(state)}
+          {displayGO}
         </div>
         {Board(state.board)}
         {Scoreboard(state.yellowPlayerName, state.redPlayerName, state.yellowTotalWins,
@@ -47,6 +48,9 @@ function App (state) {
 
 getSavedState()
 
+console.log(window.localStorage.state)
+console.log(window.appState.board)
+
 // ---------------------------------------------------------
 // Render Loop
 // ---------------------------------------------------------
@@ -54,6 +58,7 @@ getSavedState()
 const rootEl = document.getElementById('root')
 
 function renderNow () {
+  saveState()
   ReactDOM.render(App(window.appState), rootEl)
   window.requestAnimationFrame(renderNow)
 }

@@ -3,19 +3,17 @@ import React from 'react'
 import {gameStatus} from 'connect4-lib'
 import KeepPlayingBtn from './KeepPlayingBtn.js'
 
-function DisplayGameOver () {
-  if (gameStatus(appState.board).status !== 'in_progress') {
-    return (
-      <div className='winner-background'>
-        <h2>{displayWinner()}</h2>
-        {KeepPlayingBtn()}
-      </div>
-    )
-  }
+function DisplayGameOver (board) {
+  return (
+    <div className='winner-background'>
+      <h2>{displayWinner(board)}</h2>
+      {KeepPlayingBtn()}
+    </div>
+  )
 }
 
-function displayWinner () {
-  let winner = gameStatus(appState.board).status
+function displayWinner (board) {
+  let winner = gameStatus(board).status
   if (winner === 'winner_yellow') {
     let winnerName = appState.yellowPlayerName
     return winnerName + ' wins the game! Stellar!'
